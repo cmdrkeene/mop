@@ -10,7 +10,7 @@ import (
 	"path"
 	"time"
 
-	"github.com/mop-tracker/mop"
+	"github.com/cmdrkeene/mop"
 	"github.com/nsf/termbox-go"
 )
 
