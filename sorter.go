@@ -5,9 +5,9 @@
 package mop
 
 import (
-	`sort`
-	`strconv`
-	`strings`
+	"sort"
+	"strconv"
+	"strings"
 )
 
 // Sorter gets called to sort stock quotes by one of the columns. The
@@ -97,7 +97,6 @@ func (list byYieldAsc) Less(i, j int) bool {
 func (list byMarketCapAsc) Less(i, j int) bool {
 	return m(list.sortable[i].MarketCap) < m(list.sortable[j].MarketCap)
 }
-
 func (list byTickerDesc) Less(i, j int) bool {
 	return list.sortable[j].Ticker < list.sortable[i].Ticker
 }
@@ -158,8 +157,8 @@ func (sorter *Sorter) SortByCurrentColumn(stocks []Stock) *Sorter {
 		interfaces = []sort.Interface{
 			byTickerAsc{stocks},
 			byLastTradeAsc{stocks},
-			byChangeAsc{stocks},
 			byChangePctAsc{stocks},
+			byChangeAsc{stocks},
 			byOpenAsc{stocks},
 			byLowAsc{stocks},
 			byHighAsc{stocks},
@@ -176,8 +175,8 @@ func (sorter *Sorter) SortByCurrentColumn(stocks []Stock) *Sorter {
 		interfaces = []sort.Interface{
 			byTickerDesc{stocks},
 			byLastTradeDesc{stocks},
-			byChangeDesc{stocks},
 			byChangePctDesc{stocks},
+			byChangeDesc{stocks},
 			byOpenDesc{stocks},
 			byLowDesc{stocks},
 			byHighDesc{stocks},
@@ -202,7 +201,7 @@ func (sorter *Sorter) SortByCurrentColumn(stocks []Stock) *Sorter {
 func c(str string) float32 {
 	c := "$"
 	for _, v := range currencies {
-		if strings.Contains(str,v) {
+		if strings.Contains(str, v) {
 			c = v
 		}
 	}
