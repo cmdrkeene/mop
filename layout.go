@@ -203,7 +203,7 @@ func (layout *Layout) pad(str string, width int) string {
 
 //-----------------------------------------------------------------------------
 func buildMarketTemplate() *template.Template {
-	markup := `<yellow>Dow</> {{.Dow.change}} ({{.Dow.percent}}) at {{.Dow.latest}} <yellow>S&P 500</> {{.Sp500.change}} ({{.Sp500.percent}}) at {{.Sp500.latest}} <yellow>NASDAQ</> {{.Nasdaq.change}} ({{.Nasdaq.percent}}) at {{.Nasdaq.latest}}
+	markup := `<yellow>Dow</> {{.Dow.change}} ({{.Dow.percent}}) at <cyan>{{.Dow.latest}}</> <yellow>S&P 500</> {{.Sp500.change}} ({{.Sp500.percent}}) at <cyan>{{.Sp500.latest}}</> <yellow>NASDAQ</> {{.Nasdaq.change}} ({{.Nasdaq.percent}}) at <cyan>{{.Nasdaq.latest}}</>
 <yellow>Tokyo</> {{.Tokyo.change}} ({{.Tokyo.percent}}) at {{.Tokyo.latest}} <yellow>HK</> {{.HongKong.change}} ({{.HongKong.percent}}) at {{.HongKong.latest}} <yellow>London</> {{.London.change}} ({{.London.percent}}) at {{.London.latest}} <yellow>Frankfurt</> {{.Frankfurt.change}} ({{.Frankfurt.percent}}) at {{.Frankfurt.latest}} {{if .IsClosed}}<right>U.S. markets closed</right>{{end}}
 <yellow>10-Year Yield</> {{.Yield.latest}}% ({{.Yield.change}}) <yellow>Euro</> ${{.Euro.latest}} ({{.Euro.change}}%) <yellow>Yen</> ¥{{.Yen.latest}} ({{.Yen.change}}%) <yellow>Oil</> ${{.Oil.latest}} ({{.Oil.change}}%) <yellow>Gold</> ${{.Gold.latest}} ({{.Gold.change}}%)`
 
@@ -217,7 +217,7 @@ func buildQuotesTemplate() *template.Template {
 
 
 {{.Header}}
-{{range.Stocks}}{{if .Advancing}}<green>{{else}}<red>{{end}}{{.Ticker}}{{.LastTrade}}{{.Change}}{{.ChangePct}}{{.Open}}{{.Low}}{{.High}}{{.Low52}}{{.High52}}{{.Volume}}{{.AvgVolume}}{{.PeRatio}}{{.Dividend}}{{.Yield}}{{.MarketCap}}{{.PreOpen}}{{.AfterHours}}</>
+{{range.Stocks}}<yellow>{{.Ticker}}</><cyan>{{.LastTrade}}</>{{if .Advancing}}<lightgreen>{{else}}<lightred>{{end}}{{.Change}}</>{{if .Advancing}}<green>{{else}}<red>{{end}}{{.ChangePct}}{{.Open}}{{.Low}}{{.High}}{{.Low52}}{{.High52}}{{.Volume}}{{.AvgVolume}}{{.PeRatio}}{{.Dividend}}{{.Yield}}{{.MarketCap}}{{.PreOpen}}{{.AfterHours}}</>
 {{end}}`
 
 	return template.Must(template.New(`quotes`).Parse(markup))

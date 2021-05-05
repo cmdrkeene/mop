@@ -5,9 +5,10 @@
 package mop
 
 import (
-	`github.com/nsf/termbox-go`
-	`regexp`
-	`strings`
+	"regexp"
+	"strings"
+
+	"github.com/nsf/termbox-go"
 )
 
 // Markup implements some minimalistic text formatting conventions that
@@ -43,6 +44,8 @@ func NewMarkup() *Markup {
 	markup.tags[`/`] = termbox.ColorDefault
 	markup.tags[`black`] = termbox.ColorBlack
 	markup.tags[`red`] = termbox.ColorRed
+	markup.tags[`lightred`] = termbox.ColorLightRed
+	markup.tags[`lightgreen`] = termbox.ColorLightGreen
 	markup.tags[`green`] = termbox.ColorGreen
 	markup.tags[`yellow`] = termbox.ColorYellow
 	markup.tags[`blue`] = termbox.ColorBlue
