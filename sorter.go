@@ -191,6 +191,7 @@ func (sorter *Sorter) SortByCurrentColumn(stocks []Stock) *Sorter {
 		}
 	}
 
+	// Bug: Out of Bounds Index when sorting by col 15/16 AfterMarket
 	sort.Sort(interfaces[sorter.profile.SortColumn])
 
 	return sorter
