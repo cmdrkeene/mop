@@ -67,6 +67,12 @@ comments, suggestions, and contributions are welcome.
 * Pull requests accepted.
 * Commit, do not change program version, or commit history.
 
+### Improvement Ideas
+
+* Orange colored text (unclear how to make termbox do this)
+* Alert box to animate when stock hits NHOD, NLOD
+* Alert box to animate when stock changes dramatically
+* Better column layour for market section
 
 ### License ###
 Copyright (c) 2013-2019 by Michael Dvorkin and contributors. All Rights Reserved.
